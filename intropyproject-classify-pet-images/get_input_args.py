@@ -39,5 +39,30 @@ def get_input_args():
      parse_args() -data structure that stores the command line arguments object  
     """
     # Replace None with parser.parse_args() parsed argument collection that 
-    # you created with this function 
-    return None
+    # you created with this function
+
+
+    #Δημιουργω Argument Parser Object με την ονομασια parser
+    #(Αντικειμενο που κανει συντακτικη αναλυση της εισοδου ωστε να καταλαβαινει το πισι ακολουθια κουμπιων)
+    parser=argparse.ArgumentParser()
+    
+
+    # Το πρωτο Argument 1: Παιρνω και σωζω τη διαδρομη για το φακελο με τις εικονες απο το χρηστη στο parser
+    parser.add_argument('--dir',type=str,default='pet_images/',help='path to the folder of pet images')
+    
+    # Δευτερο Argument 2: Παιρνω και σωζω το τυπο του αλγοριθμου που θα κανει το classification
+    parser.add_argument('--arch',type=str,default='vgg',help='cnn model Architecture')
+
+    # Τριτο Argument 3: Παιρνω το αρχειο κειμενου που εχει τα ονοματα των σκυλων
+    parser.add_argument('--dogfile',type=str,default='dognames.txt',help='onomata skylwn')
+
+    """Για να εχω προσβαση στις εισοδους που βαζει ο χρηστης απο το argparse object που εφτιαξα και 
+        αποθηκευσα χρησιμοποιω την method parse_args() που κανει ολη τη δουλεια
+
+        1) Πρωτα θετω τη μεταβλητη 'in_args' στο method parse_args() για
+        να μπορω μεσω αυτης να εχω προσβαση στο argspace object"""
+    in_args = parser.parse_args()
+
+    #Επειδη το --dir που βαλαμε πριν ειναι η επωνυμια του argument το βαζω με ΤΕΛΕΙΑ πισω απο τη μεταβλητη που εφτιαξα
+    print('Argument 1:' , in_args.dir)
+    return in_args
