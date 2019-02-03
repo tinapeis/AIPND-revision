@@ -208,7 +208,7 @@ def check_classifying_labels_as_dogs(results_dic):
 
 
 def check_calculating_results(results_dic, results_stats_dic):
-    """    For Lab: Classifying Images - 14. Calculating Results
+    """    For Lab: Classifying Images - 16. Calculating Results
     Prints First statistics from the results stats dictionary (that was created
     by the calculates_results_stats() function), then prints the same statistics
     that were calculated in this function using the results dictionary.
